@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "5a94de53-13da-4add-9baf-2332500a9769",
+    "Name": "UsrGoldRateService",
+    "ModifiedOnUtc": "\/Date(1689865913000)\/",
+    "ManagerName": "ServiceSchemaManager",
+    "Caption": "Gold rate service",
+    "DependsOn": []
+  }
+}

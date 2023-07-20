@@ -1,4 +1,4 @@
-define("UsrRealtyClassic1Page", [], function() {
+define("UsrRealtyClassic1Page", ["ServiceHelper"], function(ServiceHelper) {
 	return {
 		entitySchemaName: "UsrRealtyClassic",
 		attributes: {
@@ -25,6 +25,14 @@ define("UsrRealtyClassic1Page", [], function() {
 				"filter": {
 					"masterColumn": "Id",
 					"detailColumn": "UsrRealtyClassic"
+				}
+			},
+			"UsrSchema7ccef49fDetail1be71a18": {
+				"schemaName": "UsrRealtyVisitClassicDetailGrid",
+				"entitySchemaName": "UsrRealtyVisitClassic",
+				"filter": {
+					"detailColumn": "UsrParentRealty",
+					"masterColumn": "Id"
 				}
 			}
 		}/**SCHEMA_DETAILS*/,
@@ -71,6 +79,30 @@ define("UsrRealtyClassic1Page", [], function() {
 				this.callParent(arguments);
 				this.addColumnValidator("UsrPriceUSD", this.positiveValueValidator);
 				this.addColumnValidator("UsrArea", this.positiveValueValidator);
+			},
+			onRunWebServiceButtonClick: function() {
+				var typeObject = this.get("UsrType");
+				if (!typeObject) {
+					return;
+				}
+				var typeId = typeObject.value;
+				var offerTypeObject = this.get("UsrOfferType");
+				if (!offerTypeObject) {
+					return;
+				}
+				var offerTypeId = offerTypeObject.value;
+				var params = {
+					realtyTypeId: typeId,
+					realtyOfferTypeId: offerTypeId,
+					entityName: "UsrRealtyClassic"
+				};				
+				this.console.log("1");
+				ServiceHelper.callService("RealtyService", "GetTotalAmountByTypeId", this.getWebServiceResult, params, this);
+				this.console.log("2");
+			},
+			getWebServiceResult: function(response, success) {
+				this.console.log("3");
+				this.Terrasoft.showInformation("Total amount by typeId: " + response.GetTotalAmountByTypeIdResult);
 			}
 		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
@@ -131,10 +163,28 @@ define("UsrRealtyClassic1Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "MyButton",
+				"name": "FLOAT367fe6df-a35b-4278-8776-c8d291514cf6",
 				"values": {
 					"layout": {
 						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "UsrCommissionUSD",
+					"enabled": false
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "MyButton",
+				"values": {
+					"layout": {
+						"colSpan": 8,
 						"rowSpan": 1,
 						"column": 0,
 						"row": 4,
@@ -154,25 +204,31 @@ define("UsrRealtyClassic1Page", [], function() {
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
-				"index": 3
+				"index": 4
 			},
 			{
 				"operation": "insert",
-				"name": "FLOAT367fe6df-a35b-4278-8776-c8d291514cf6",
+				"name": "RunWebServiceButton",
 				"values": {
 					"layout": {
-						"colSpan": 24,
+						"colSpan": 12,
 						"rowSpan": 1,
-						"column": 0,
-						"row": 3,
+						"column": 8,
+						"row": 4,
 						"layoutName": "ProfileContainer"
 					},
-					"bindTo": "UsrCommissionUSD",
-					"enabled": false
+					"itemType": 5,
+					"caption": {
+						"bindTo": "Resources.Strings.RunWSButtonCaption"
+					},
+					"click": {
+						"bindTo": "onRunWebServiceButtonClick"
+					},
+					"style": "red"
 				},
 				"parentName": "ProfileContainer",
 				"propertyName": "items",
-				"index": 4
+				"index": 5
 			},
 			{
 				"operation": "insert",
@@ -252,10 +308,10 @@ define("UsrRealtyClassic1Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "NotesAndFilesTab",
+				"name": "Tab8c387c7bTabLabel",
 				"values": {
 					"caption": {
-						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+						"bindTo": "Resources.Strings.Tab8c387c7bTabLabelTabCaption"
 					},
 					"items": [],
 					"order": 0
@@ -263,6 +319,31 @@ define("UsrRealtyClassic1Page", [], function() {
 				"parentName": "Tabs",
 				"propertyName": "tabs",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrSchema7ccef49fDetail1be71a18",
+				"values": {
+					"itemType": 2,
+					"markerValue": "added-detail"
+				},
+				"parentName": "Tab8c387c7bTabLabel",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "NotesAndFilesTab",
+				"values": {
+					"caption": {
+						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+					},
+					"items": [],
+					"order": 1
+				},
+				"parentName": "Tabs",
+				"propertyName": "tabs",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -320,7 +401,7 @@ define("UsrRealtyClassic1Page", [], function() {
 				"operation": "merge",
 				"name": "ESNTab",
 				"values": {
-					"order": 1
+					"order": 2
 				}
 			}
 		]/**SCHEMA_DIFF*/

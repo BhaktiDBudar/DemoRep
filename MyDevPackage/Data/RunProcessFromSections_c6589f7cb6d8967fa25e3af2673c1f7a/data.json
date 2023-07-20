@@ -1,0 +1,54 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "6f4cb909-e491-479a-9d34-9f577498162d"
+        },
+        {
+          "SchemaColumnUId": "18fd508a-8e32-454d-bd8a-82a9d4028ace",
+          "Value": "af55c1a9-c602-4d91-b32d-61011a9fdd3c"
+        },
+        {
+          "SchemaColumnUId": "4420cc5f-5a43-490b-b583-f8572ac29dce",
+          "Value": "0f064e80-6570-4ea7-aff3-62292d76c1ec",
+          "DisplayValue": "Chat"
+        },
+        {
+          "SchemaColumnUId": "a9f680eb-bc67-4aac-919e-0ad9f1000690",
+          "Value": "ac02f77e-f0c6-4347-bd1c-af4ebc33b611"
+        },
+        {
+          "SchemaColumnUId": "aadb966f-e2f2-4239-b56f-51ba5fdf0533",
+          "Value": 1
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "7ef7d0f9-c6b7-4021-80f3-c103c34369b7"
+        },
+        {
+          "SchemaColumnUId": "18fd508a-8e32-454d-bd8a-82a9d4028ace",
+          "Value": "1d178a8d-28dc-4572-a33c-ab28f0c31aec"
+        },
+        {
+          "SchemaColumnUId": "4420cc5f-5a43-490b-b583-f8572ac29dce",
+          "Value": "aaff69c8-61ce-4977-90b9-4b2a05e8f85a",
+          "DisplayValue": "Realty Classic"
+        },
+        {
+          "SchemaColumnUId": "a9f680eb-bc67-4aac-919e-0ad9f1000690",
+          "Value": "77bff600-48de-46c9-a918-ec699ba999e0"
+        },
+        {
+          "SchemaColumnUId": "aadb966f-e2f2-4239-b56f-51ba5fdf0533",
+          "Value": 1
+        }
+      ]
+    }
+  ]
+}
